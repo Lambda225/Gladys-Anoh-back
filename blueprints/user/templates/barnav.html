@@ -1,0 +1,35 @@
+<div class="responsive_menu">
+    <ul>
+        <li> <a href="#">ARTICLE</a></li>
+        <li> <a href="{{ url_for('user.podcast') }}">PODCAST</a></li>
+        <li> 
+            BOUTIQUE
+            <div>
+                <a href="{{ url_for('user.livre') }}">Livres</a>
+                <a href="{{ url_for('user.formation') }}">Formations</a>
+            </div>
+        </li>
+        <li> <a href="{{ url_for('user.apropos') }}">A PROPOS</a></li>
+    </ul>
+    <div class="communaute">
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+    </div>
+</div>
+<nav>
+    <a href="{{ url_for('user.home') }}" class="logo">Gladis Anoh</a>
+    <ul class="lien">
+        <li> <a href="#">ARTICLE</a></li>
+        <li> <a href="{{ url_for('user.podcast') }}">PODCAST</a></li>
+        <li class="special"> 
+            BOUTIQUE
+            <div class="souslien">
+                <a href="{{ url_for('user.livre') }}">Livres</a>
+                <a href="{{ url_for('user.formation') }}">Formations</a>
+            </div>
+        </li>
+        <li> <a href="{{ url_for('user.apropos') }}">A PROPOS</a></li>
+    </ul>
+    <div class="burger"><i class="fa-solid fa-bars"></i></div>
+</nav>

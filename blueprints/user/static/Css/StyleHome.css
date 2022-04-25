@@ -1,0 +1,350 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins';
+    box-sizing: border-box;
+}
+header{
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+header img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    z-index: -1;
+}
+.text_header{
+    padding: 0 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+.text_header h1{
+    text-align: center;
+    max-width: 1200px;
+    font-size: 2.6rem;
+    margin-bottom: 1.5rem;
+}
+.text_header p{
+    text-align: center;
+    margin-bottom: 1.5rem;
+    max-width: 450px;
+    font-size: 1.1rem;
+}
+.text_header a{
+    color: black;
+    display: flex;
+    border: solid black 2px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    height: 3rem;
+    width: 3rem;
+}
+.articles{
+    margin: 10rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.articles h3{
+    width: auto;
+    font-weight: normal;
+    font-size: 1.5rem;
+}
+.article{
+    margin-top: 3rem;
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    padding-left: 6%;
+}
+.article .contener_slider{
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.contener_slider .slider{
+    display: flex;
+    position: absolute;
+    justify-content: left;
+    transform: translateX(0);
+    transition: all 0.5s ;
+}
+
+.contener_slider .slider .item{
+    height: 320px;
+    margin: 0 16px;
+    width: 320px;
+    background-color: rgb(243, 243, 243);
+}
+.article .info{
+    width: 500px;
+}
+.article .info h2{
+    width: 100%;
+    font-size: 2rem;
+    font-weight: normal;
+}
+.article .info p{
+    margin-top: 2rem;
+}
+.article .defile{
+    margin-top: 1rem;
+    display: flex;
+    padding-bottom: 1rem;
+    border-bottom: solid black 2px;
+}
+.article .defile .btn_defile{
+    display: flex;
+    align-items: flex-end;
+}
+.articles > .btn_defile{
+    display: none;
+}
+.btn_defile div{
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    border: solid black 2px;
+    margin: 0 1rem;
+    cursor: pointer;
+}
+.btn_defile div:hover{
+    color: white;
+    background-color: black;
+    border: none;
+}
+.promotion{
+    position: relative;
+    display: flex;
+    justify-content: end;
+    padding: 40px;
+    min-height: 100vh;
+}
+.promotion >img{
+    position: absolute;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+.info_pub{
+    background-color: rgb(243, 243, 243);
+    width: 50%;
+    height: 100%;
+    padding: 3.5vw;
+}
+.info_pub img{
+    width: 100%;
+    padding-bottom: 2rem;
+    border-bottom: solid black 2px;
+}
+.contenu{
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap:16px;
+    grid-row-gap: 16px;
+}
+.contenu h2{
+    font-weight: normal;
+    font-size: 2rem;
+}
+.contenu .btn{
+    padding: 16px 30px;
+    width: fit-content;
+    font-size: 14px;
+    text-align: center;
+    border-radius: 9rem;
+    background-color: black;
+    text-decoration: none;
+    color: white;
+}
+.contenu .btn:hover{
+    background-color: transparent;
+    color: black;
+    border: solid black 2px;
+}
+.podcasts{
+    margin-top: 10rem;
+    padding: 140px 8%;
+    border-top-left-radius: 2000px;
+    border-top-right-radius: 2000px;
+    background-color: rgb(243, 243, 243);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.podcasts h2{
+    font-size: 3rem;
+    font-weight: normal;
+}
+.podcasts .items{
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+}
+.items .item{
+    margin: 0 2rem;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+}
+.items .item > div{
+    width: 100%;
+
+    background-color: white;
+}
+.items .item img{
+    max-width: 100%;
+}
+.items .item h3{
+    margin-top: 2rem;
+    font-size: 24px;
+    white-space: nowrap;
+    font-weight: normal;
+}
+.items .item p{
+    font-size: 17px;
+    font-weight: normal;
+}
+.items .item a{
+    margin-top: 1rem;
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    width: fit-content;
+    text-decoration: none;
+    padding: 16px 30px;
+    background-color: black;
+    color: white;
+    border-radius: 9rem;
+}
+.items .item a:hover{
+    background-color: transparent;
+    border: solid black 2px;
+    color: black;
+}
+
+@media screen and (max-width: 980px){
+    .articles{
+        text-align: center;
+    }
+    .article{
+        flex-direction: column;
+        align-items: center;
+        padding: 0 6%;
+    }
+    .article .defile{
+        border: none;
+    }
+    .article .info{
+        width: 100%;
+        margin-bottom: 4rem;
+        padding: 0 8%;
+    }
+    .contener_slider{
+        height: 400px;
+        margin-top: 2rem;
+    }
+    .article .defile .btn_defile{
+        display: none;
+    }
+    .articles > .btn_defile{
+        display: flex;
+    }
+    .btn_defile div{
+        margin: 0 3rem;
+    }
+    .promotion{
+        justify-content: center;
+        padding: 0;
+    }
+}
+@media screen and (max-width: 770px){
+    .text_header h1,.contenu h2{
+        font-size: 30px;
+    }
+    .text_header p,.article .info p,.info_pub p,.items .item p{
+        font-size: 15px;
+    }
+    nav .logo,.podcasts h2{
+        font-size: 2rem;
+    }
+    .articles h3,.items .item h3{
+        font-size: 20px;
+    }
+    .article .info h2{
+        font-size: 27px;
+    }
+    .contenu{
+        grid-template-columns: 1fr;
+    }
+    .podcasts .items{
+        flex-direction: column;
+        align-items: center;
+    }
+    .items .item{
+        width: 50%;
+        margin: 1rem 0;
+    }
+}
+@media screen and (max-width: 500px){
+    .info_pub{
+        width: 80%;
+    }
+    .contener_slider .slider .item{
+        height: 280px;
+        width: 280px;
+        padding: 0 13px;
+    }
+    .text_header h1, .contenu h2{
+        font-size: 30px;
+    }
+    .text_header p, .article .info p, .info_pub p, .items .item p{
+        font-size: 18px;
+    }
+    nav .logo, .podcasts h2{
+        font-size: 1.5rem;
+    }
+    .articles h3, .items .item h3,footer .logo p{
+        font-size: 18px;
+    }
+    .article .info h2{
+        font-size: 30px;
+    }
+    .contenu .btn,.items .item a{
+        font-size: 13px;
+        padding: 10px 26px;
+    }
+    footer .logo h2{
+        font-size: 2rem;
+    }
+    footer .logo p{
+        width: 70%;
+    }
+    footer .nav ul{
+        font-size: 1rem;
+    }
+    footer .nav ul li > div,.auteur,.copie{
+        font-size: .8rem;
+    }
+    footer .communaute a{
+        font-size: 1rem;
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+}
