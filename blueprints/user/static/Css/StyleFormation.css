@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: poppins,sans-serif;
 }
 header{
@@ -272,6 +273,7 @@ header img{
 }
 .preocupation h2{
     font-size: 1.8rem;
+    text-align: center;
     margin-bottom: 1rem;
 }
 .preocupation p{
@@ -325,5 +327,50 @@ header img{
     .offre h2, .offre p,.offre a{
         text-align: center;
         width: 90%;
+    }
+    .banier,.offre{
+        padding: 35px 0;
+    }
+    .banier div{
+        height: 44px;
+    }
+    .avis h2{
+        width: 90%;
+    }
+    .avis .contener{
+        padding: 0 6%;
+    }
+    .tarif{
+        grid-template-columns: 1fr;
+    }
+    .tarif .item{
+        margin-top: 1rem;
+    }
+    .forfait >h2, .forfait >p,.preocupation .question{
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 600px){
+    header h1{
+        font-size: 30px;
+    }
+    header .lien_header{
+        font-size: 15px;
+    }
+    .presention p,.section_image .text,.banier p,.description > p,.illustration .text p,.offre p,.avis .contener{
+        font-size: 18px;
+    }
+    .forfait > p,.preocupation p{
+        font-size: 18px;
+    }
+    .plus_info h2,.banier h2,.description h2,.offre h2,.avis h2,.forfait> h2,.preocupation h2{
+        font-size: 25px;
+    }
+    .preocupation h4{
+        font-size: 20px;
+    }
+    .illustration .text h3{
+        font-size: 23px;
     }
 }

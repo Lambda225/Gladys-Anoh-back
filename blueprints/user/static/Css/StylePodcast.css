@@ -129,6 +129,15 @@ section .serie .themes .item{
     }
 }
 
+@media screen and (max-width: 600px){
+    .episode h2,.description p{
+        font-size: 18px;
+    }
+    .description h3{
+        font-size: 25px;
+    }
+}
+
 @media screen and (max-width: 550px){
     section .serie .themes{
         flex-direction: column;

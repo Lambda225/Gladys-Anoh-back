@@ -281,7 +281,7 @@ header img{
     .text_header p,.article .info p,.info_pub p,.items .item p{
         font-size: 15px;
     }
-    nav .logo,.podcasts h2{
+    .podcasts h2{
         font-size: 2rem;
     }
     .articles h3,.items .item h3{
@@ -317,7 +317,7 @@ header img{
     .text_header p, .article .info p, .info_pub p, .items .item p{
         font-size: 18px;
     }
-    nav .logo, .podcasts h2{
+    .podcasts h2{
         font-size: 1.5rem;
     }
     .articles h3, .items .item h3,footer .logo p{

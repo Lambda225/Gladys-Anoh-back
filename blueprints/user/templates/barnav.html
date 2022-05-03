@@ -1,15 +1,17 @@
 <div class="responsive_menu">
     <ul>
-        <li> <a href="#">ARTICLE</a></li>
-        <li> <a href="{{ url_for('user.podcast') }}">PODCAST</a></li>
+        <li><span>01</span> <a href="#" class="item">ARTICLE</a></li>
+        <li><span>02</span> <a href="{{ url_for('user.podcast') }}" class="item">PODCAST</a></li>
+        <li><span>03</span><a href="#" class="item">AGENDAT</a></li>
         <li> 
-            BOUTIQUE
-            <div>
+            <span>04</span>
+            <span class="item">BOUTIQUE</span>
+            <div class="petit_menu">
                 <a href="{{ url_for('user.livre') }}">Livres</a>
                 <a href="{{ url_for('user.formation') }}">Formations</a>
             </div>
         </li>
-        <li> <a href="{{ url_for('user.apropos') }}">A PROPOS</a></li>
+        <li><span>05</span> <a href="{{ url_for('user.apropos') }}" class="item">A PROPOS</a></li>
     </ul>
     <div class="communaute">
         <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
@@ -22,6 +24,7 @@
     <ul class="lien">
         <li> <a href="#">ARTICLE</a></li>
         <li> <a href="{{ url_for('user.podcast') }}">PODCAST</a></li>
+        <li><a href="#">AGENDAT</a></li>
         <li class="special"> 
             BOUTIQUE
             <div class="souslien">

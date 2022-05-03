@@ -1,5 +1,5 @@
 import os 
-from flask import Flask
+from flask import Flask, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
@@ -19,5 +19,7 @@ Migrate(app, db)
 
 #initialisation des blueprints
 from blueprints.user.views import user
+from blueprints.admin.views import admin
 
+app.register_blueprint(admin,url_prefix='/admin')
 app.register_blueprint(user,url_prefix='/user')
