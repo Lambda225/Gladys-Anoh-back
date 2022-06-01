@@ -1,9 +1,6 @@
-from blueprints import app,user
-from flask import redirect,url_for
+from flask import Flask
 
-@app.route('/')
-def Acceuil():
-    return redirect(url_for('user.home'))
+app = Flask('__name__')
 
 if __name__ == '__main__':
     app.run(debug=True)
