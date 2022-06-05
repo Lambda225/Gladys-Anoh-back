@@ -4,7 +4,7 @@
 *.pyc
 *.pyo
 env/
-env/pyvenv.cfg
+pyvenv.cfg
 venv/
 .venv/
 env*
