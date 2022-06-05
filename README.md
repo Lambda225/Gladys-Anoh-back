@@ -68,11 +68,6 @@ app.config.from_pyfile('config.Development.cfg')
 
 ##Flask settings
 DEBUG = True  # True/False
-TESTING = False
-
-##SWAGGER settings
-SWAGGER_DOC_URL = '/api'
-
 ....
 
 
