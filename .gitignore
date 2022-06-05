@@ -4,7 +4,7 @@
 *.pyc
 *.pyo
 env/
-env/*
+env/pyvenv.cfg
 venv/
 .venv/
 env*
@@ -25,3 +25,4 @@ htmlcov/
 .coverage.*
 *,cover
 .db
+.cfg
