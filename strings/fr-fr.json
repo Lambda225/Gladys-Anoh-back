@@ -1,0 +1,43 @@
+{
+  "mailgun_failed_load_api_key": "french- Failed to load MailGun API key.",
+  "mailgun_failed_load_domain": "french- Failed to load MailGun domain.",
+  "mailgun_error_send_email": "french- Error in sending confirmation email, user registration failed.",
+
+  "confirmation_not_found": "french- Confirmation reference not found.",
+  "confirmation_link_expired": "french- The link has expired.",
+  "confirmation_already_confirmed": "french- Registration has already been confirmed.",
+  "confirmation_account_successful": "french- your account has been successfuly confirmed.",
+  "confirmation_resend_fail": "french- Internal server error. Failed to resend confirmation email.",
+  "confirmation_resend_successful": "french- E-mail confirmation successfully re-sent.",
+
+  "item_name_exists": "french- An item with name '{}' already exists.",
+  "item_error_inserting": "french- An error occurred while inserting the item.",
+  "item_not_found": "french- Item not found.",
+  "item_deleted": "french- Item deleted.",
+
+  "store_name_exists": "french- A store with name '{}' already exists.",
+  "store_error_inserting": "french- An error occurred while inserting the store.",
+  "store_not_found": "french- Store not found.",
+  "store_deleted": "french- Store deleted.",
+
+  "user_email_exists": "french- A user with that email already exists.",
+  "user_email_exists": "french- A user with that email already exists.",
+  "user_not_found": "french- User not found.",
+  "user_deleted": "french- User deleted.",
+  "user_invalid_credentials": "french- Invalid credentials!",
+  "user_logged_out": "french- User <id={}> successfully logged out.",
+  "user_not_confirmed": "french- You have not confirmed registration, please check your email <{}>.",
+  "user_error_creating": "french- Internal server error. Failed to create user.",
+  "user_registered": "french- Account created successfully, an email with an activation link has been sent to your email address, please check.",
+  "user_password_updated": "french- User password updated successfully.",
+
+  "image_uploaded": "french- Image '{}' uploaded.",
+  "image_illegal_extension": "french- Extension '{}' is not allowed.",
+  "image_illegal_filename": "french- illegal filename '{}' requested",
+  "image_not_found": "french- Image '{}' not found.",
+  "image_deleted": "french- Image '{}' deleted.",
+  "image_delete_failed": "french- Internal server error! Failed to delete image.",
+  "avatar_delete_failed": "french- Internal server error! Failed to delete avatar.",
+  "avatar_uploaded": "french- Avatar '{}' uploaded.",
+  "avatar_not_found": "french- Avatar not found."
+}
