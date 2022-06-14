@@ -1,8 +1,15 @@
+from json import dump
+from typing import List
+from typing import Dict, List, Union
+
+from sqlalchemy import JSON
+UserJSON = Dict[str, Union[int, str, float]]
 from email.policy import default
 from db import db
 from flask import request, url_for
 from requests import Response
-from libs.mailgun import Mailgun
+from models.user_role_model import association_table
+
 
 
 class UserModel(db.Model):
@@ -15,7 +22,9 @@ class UserModel(db.Model):
     birthday = db.Column(db.String(80))
     email = db.Column(db.String(80), nullable=False, unique=True)
     password = db.Column(db.String(80))
-    is_admin = db.Column(db.Boolean, default=False, nullable=False)
+    roles = db.relationship('RoleModel',
+                               secondary=association_table, backref="userslist")
+    
     
     
     @classmethod
@@ -25,6 +34,16 @@ class UserModel(db.Model):
     @classmethod
     def find_by_id(cls, _id:int) -> "UserModel":
         return cls.query.filter_by(id = _id).first()
+    
+    def json(self) -> UserJSON:
+        return {
+            'id':self.id,
+            'nom': self.nom,
+            'profession': self.profession,
+            'email': self.email,
+            'roles': [role.name for role in self.roles ],
+            'naissance':self.birthday
+        }
 
     def save_to_db(self) -> None:
         db.session.add(self)
