@@ -9,6 +9,8 @@ from models.roles_model import RoleModel
 _user_parser = reqparse.RequestParser()
 _user_parser.add_argument('nom', type=str, required=True,
                             help=BLANK_ERROR.format("nom"))
+_user_parser.add_argument('prenom', type=str, required=True,
+                            help=BLANK_ERROR.format("nom"))
 _user_parser.add_argument('birthday', type=str, required=True,
                             help=BLANK_ERROR.format("birthday"))
 _user_parser.add_argument('email', type=str, required=True,
@@ -18,6 +20,7 @@ _user_parser.add_argument('password', type=str, required=True,
 register_args = _user_parser.copy()
 login_args=_user_parser.copy()
 login_args.remove_argument("nom")
+login_args.remove_argument("prenom")
 login_args.remove_argument("birthday")
 
 
@@ -36,7 +39,7 @@ class UserRegister(Resource):
         return  {"message": CREATED.format("user")}, 201
 
 class User(Resource):
-    @classmethod
+    @classmethod 
     def get(cls, user_id:int):
         user = UserModel.find_by_id(user_id)
         if not user:

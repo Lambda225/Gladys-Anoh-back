@@ -18,6 +18,7 @@ class UserModel(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     nom = db.Column(db.String(80))
+    prenom = db.Column(db.String(80))
     profession = db.Column(db.String(80))
     birthday = db.Column(db.String(80))
     email = db.Column(db.String(80), nullable=False, unique=True)
@@ -39,6 +40,7 @@ class UserModel(db.Model):
         return {
             'id':self.id,
             'nom': self.nom,
+            'prenom': self.prenom,
             'profession': self.profession,
             'email': self.email,
             'roles': [role.name for role in self.roles ],

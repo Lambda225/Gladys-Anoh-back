@@ -1,5 +1,7 @@
 import os
-from dotenv import load_dotenv; load_dotenv(".env", verbose=True);
+from dotenv import load_dotenv
+
+from models.event_model import EventModel; load_dotenv(".env", verbose=True);
 from flask import Flask
 from flask_restful import  Api
 from flask_jwt_extended import JWTManager
@@ -12,6 +14,7 @@ from ressources.user_resource import UserRegister, User, UserLogin, UserLogout
 from ressources.token_ressource import TokenRefresh
 from ressources.image_resource import ImageUpload, Image, AvatarUpload, Avatar
 from ressources.role_ressource import Role, RoleList
+from ressources.event_ressource import EventRegister
 from libs.image_helper import IMAGE_SET
 from blocklist import BLOCKLIST
 from models.roles_model import RoleModel
@@ -61,6 +64,7 @@ api.add_resource(AvatarUpload, "/upload/avatar")
 api.add_resource(Avatar, "/avatar/<int:user_id>")
 api.add_resource(Role, '/role/<string:name>')
 api.add_resource(RoleList, '/roles')
+api.add_resource(EventRegister, '/event/create')
 #### resources end ####
 
 if __name__=='__main__':
