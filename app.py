@@ -15,6 +15,7 @@ from ressources.token_ressource import TokenRefresh
 from ressources.image_resource import ImageUpload, Image, AvatarUpload, Avatar
 from ressources.role_ressource import Role, RoleList
 from ressources.event_ressource import EventRegister
+from ressources.article_ressource import ArticleRegister
 from libs.image_helper import IMAGE_SET
 from blocklist import BLOCKLIST
 from models.roles_model import RoleModel
@@ -65,6 +66,7 @@ api.add_resource(Avatar, "/avatar/<int:user_id>")
 api.add_resource(Role, '/role/<string:name>')
 api.add_resource(RoleList, '/roles')
 api.add_resource(EventRegister, '/event/create')
+api.add_resource(ArticleRegister, '/article/create')
 #### resources end ####
 
 if __name__=='__main__':

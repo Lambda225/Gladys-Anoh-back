@@ -3,6 +3,7 @@ from db import db
 from typing import Dict, List, Union
 import datetime
 EventJSON = Dict[str, Union[int, str, float]]
+from models.billet_model import BilletModel
 
 class EventModel(db.Model):
     __tablename__ = 'events'
@@ -14,12 +15,14 @@ class EventModel(db.Model):
     #photo = db.Column(db.String(80), null=True )
     nom_de_place = db.Column(db.Integer)
     description = db.Column(db.String(80), unique=True)
+    billet = db.relationship('BilletModel', backref='events', lazy=True)
+    avis = db.relationship('AvisModel', backref='events', lazy=True)
 
     def __init__(self, titre:str, date:str, presentiel:bool, cout:float, nom_de_place:int, description:str):
         self.titre          = titre
         self.cout           = cout
         self.date           = date
-        self.presentiel     =presentiel
+        self.presentiel     = presentiel
         self.nom_de_place   = nom_de_place
         self.description    = description
         
@@ -31,7 +34,9 @@ class EventModel(db.Model):
             'cout': self.cout,
             'date':self.date,
             'nom_de_place':self.nom_de_place,
-            'description':self.description
+            'description':self.description,
+            'billets': [billet.id for billet in self.billet ],
+            'avis': [avi.id for avi in self.avis],
         }
 
     @classmethod

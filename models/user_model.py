@@ -9,7 +9,10 @@ from db import db
 from flask import request, url_for
 from requests import Response
 from models.user_role_model import association_table
-
+from models.article_model import ArticleModel
+from models.livre_model import LivreModel
+from models.avis_model import AvisModel
+from models.billet_model import BilletModel
 
 
 class UserModel(db.Model):
@@ -24,7 +27,12 @@ class UserModel(db.Model):
     email = db.Column(db.String(80), nullable=False, unique=True)
     password = db.Column(db.String(80))
     roles = db.relationship('RoleModel',
-                               secondary=association_table, backref="userslist")
+                               secondary=association_table, backref="users")
+    articles = db.relationship('ArticleModel', backref='users', lazy=True)
+    livres = db.relationship('LivreModel', backref='users', lazy=True)
+    avis = db.relationship('AvisModel', backref='users', lazy=True)
+    billets = db.relationship('BilletModel', backref='users', lazy=True)
+
     
     
     
@@ -44,7 +52,11 @@ class UserModel(db.Model):
             'profession': self.profession,
             'email': self.email,
             'roles': [role.name for role in self.roles ],
-            'naissance':self.birthday
+            'articles': [article.id for article in self.articles],
+            'livres': [livre.id for livre in self.livres],
+            'naissance':self.birthday,
+            'avis': [avi.id for avi in self.avis],
+            'billets': [billet.id for billet in self.billets],
         }
 
     def save_to_db(self) -> None:
