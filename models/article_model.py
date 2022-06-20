@@ -11,6 +11,8 @@ class ArticleModel(db.Model):
     description = db.Column(db.Text(), unique=True)
     users_id = db.Column(db.Integer, db.ForeignKey('users.id'),
                             nullable=False)
+    cat_article_id = db.Column(db.Integer, db.ForeignKey('categorie_article.id'),
+                            nullable=False)
 
     def __init__(self,titre:str,description:str):
         self.titre = titre 
@@ -22,6 +24,7 @@ class ArticleModel(db.Model):
             'titre': self.titre,
             'description':self.description,
             'user_id': self.users_id,
+            'cat_article_id' : self.cat_article_id,
         }
     
     @classmethod

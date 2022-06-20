@@ -11,7 +11,9 @@ class PodcastModel(db.Model):
     titre = db.Column(db.String(80))
     lien_achat = db.Column(db.Text())
     users_id = db.Column(db.Integer, db.ForeignKey('users.id'),
-                            nullable=True)
+                            nullable=False)
+    cat_podcast_id = db.Column(db.Integer, db.ForeignKey('categorie_podcast.id'),
+                            nullable=False)
 
     @classmethod
     def find_by_email(cls, email:str) -> "PodcastModel":
@@ -27,6 +29,7 @@ class PodcastModel(db.Model):
             'titre': self.titre,
             'lien_achat': self.lien_achat,
             'user_id': self.users_id,
+            'cat_podcast_id' : self.cat_podcast_id,
         }
     
     def save_to_db(self) -> None:
