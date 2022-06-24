@@ -8,18 +8,23 @@ class CatPodcsatModel(db.Model):
     __tablename__ = 'categorie_podcast'
     
     id = db.Column(db.Integer, primary_key=True)
+    titre = db.Column(db.String(80))
     description = db.Column(db.Text())
+    lienspotify = db.Column(db.Text())
     podcasts = db.relationship('PodcastModel', backref='categorie_podcast', lazy=True)
     users_id = db.Column(db.Integer, db.ForeignKey('users.id'),
                             nullable=False)
     
-    def __init__(self,titre:str,description:str):
+    def __init__(self,titre:str,description:str,lienspotify:str):
         self.titre = titre
+        self.lienspotify = lienspotify
         self.description = description
         
     def json(self) -> CatPodcsaJSON:
         return {
             'id':self.id,
+            'titre':self.titre,
+            'lienspotify':self.lienspotify,
             'description': self.description,
             'podcasts' : [podcast.id for podcast in self.podcasts],
             'user_id': self.users_id,

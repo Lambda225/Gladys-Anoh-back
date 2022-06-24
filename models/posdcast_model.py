@@ -1,3 +1,4 @@
+from re import S
 from db import db
 from typing import Dict, List, Union
 PoscastJSON = Dict[str, Union[int, str, float]]
@@ -9,11 +10,17 @@ class PodcastModel(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     titre = db.Column(db.String(80))
-    lien_achat = db.Column(db.Text())
+    ifram = db.Column(db.Text())
+    description = db.Column(db.Text())
     users_id = db.Column(db.Integer, db.ForeignKey('users.id'),
                             nullable=False)
     cat_podcast_id = db.Column(db.Integer, db.ForeignKey('categorie_podcast.id'),
                             nullable=False)
+
+    def __init__(self,titre:str,description:str,ifram:str):
+        self.titre = titre
+        self.ifram = ifram
+        self.description = description
 
     @classmethod
     def find_by_email(cls, email:str) -> "PodcastModel":
@@ -27,7 +34,8 @@ class PodcastModel(db.Model):
         return {
             'id':self.id,
             'titre': self.titre,
-            'lien_achat': self.lien_achat,
+            'Ifram': self.ifram,
+            'description':self.description,
             'user_id': self.users_id,
             'cat_podcast_id' : self.cat_podcast_id,
         }

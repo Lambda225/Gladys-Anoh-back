@@ -15,6 +15,8 @@ from models.avis_model import AvisModel
 from models.billet_model import BilletModel
 from models.categorie_article_model import CatArticleModel
 from models.categorie_podcast_model import CatPodcsatModel
+from models.question_model import QuestionModel
+from models.reponse_model import ReponseModel
 
 
 class UserModel(db.Model):
@@ -36,6 +38,8 @@ class UserModel(db.Model):
     billets = db.relationship('BilletModel', backref='users', lazy=True)
     cat_articles = db.relationship('CatArticleModel', backref='users', lazy=True)
     cat_podcasts = db.relationship('CatPodcsatModel', backref='users', lazy=True)
+    questions = db.relationship('QuestionModel', backref='users', lazy=True)
+    reponses = db.relationship('ReponseModel', backref='users', lazy=True)
 
     
     
@@ -62,6 +66,8 @@ class UserModel(db.Model):
             'avis': [avi.id for avi in self.avis],
             'billets': [billet.id for billet in self.billets],
             'cat_articles' : [cat_article.id for cat_article in self.cat_articles],
+            'questions': [question.id for question in self.questions],
+            'reponses': [reponse.id for reponse in self.reponses]
         }
 
     def save_to_db(self) -> None:
