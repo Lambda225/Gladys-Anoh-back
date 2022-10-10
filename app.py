@@ -14,8 +14,15 @@ from ressources.user_resource import UserRegister, User, UserLogin, UserLogout
 from ressources.token_ressource import TokenRefresh
 from ressources.image_resource import ImageUpload, Image, AvatarUpload, Avatar
 from ressources.role_ressource import Role, RoleList
-from ressources.event_ressource import EventRegister
-from ressources.article_ressource import ArticleRegister
+from ressources.event_ressource import EventRegister,EventUnique
+from ressources.categorie_article_ressource import CatArticleList,CatArticle
+from ressources.article_ressource import ArticleRegister,Article
+from ressources.categorie_podcast_ressouce import CatPodcastUnique,CatPodcastRegister
+from ressources.podcast_ressource import PodcastRegister,PodcastUnique
+from ressources.livre_ressouce import LivreRegister, LivreUnique
+from ressources.question_ressource import QuestionRegister,QuestionUnique
+from ressources.response_ressource import ReponseRegister,ReponseUnique
+from ressources.question_lier_ressource import Lier
 from libs.image_helper import IMAGE_SET
 from blocklist import BLOCKLIST
 from models.roles_model import RoleModel
@@ -37,13 +44,13 @@ jwt = JWTManager(app)
 migrate=Migrate(app, db)
 
 
-@app.before_first_request
-def create_tables():
-    db.create_all()
-    admin = RoleModel("admin")
-    admin.save_to_db()
-    user = RoleModel("user")
-    user.save_to_db()
+# @app.before_first_request
+# def create_tables():
+#     db.create_all()
+#     admin = RoleModel("admin")
+#     admin.save_to_db()
+#     user = RoleModel("user")
+#     user.save_to_db()
     
     
 
@@ -66,7 +73,22 @@ api.add_resource(Avatar, "/avatar/<int:user_id>")
 api.add_resource(Role, '/role/<string:name>')
 api.add_resource(RoleList, '/roles')
 api.add_resource(EventRegister, '/event/create')
+api.add_resource(EventUnique,'/event/<int:event_id>')
+api.add_resource(CatArticle,'/cat_article/<int:cat_id>')
+api.add_resource(CatArticleList,'/cat_articles')
 api.add_resource(ArticleRegister, '/article/create')
+api.add_resource(Article, '/article/<int:art_id>')
+api.add_resource(CatPodcastRegister,'/catpodcast/create')
+api.add_resource(CatPodcastUnique,'/catpodcast/<int:cat_id>')
+api.add_resource(PodcastRegister,'/podcast/create')
+api.add_resource(PodcastUnique,'/podcast/<int:pod_id>')
+api.add_resource(LivreRegister,'/book/create')
+api.add_resource(LivreUnique,'/book/<int:livre_id>')
+api.add_resource(QuestionRegister,'/question/create')
+api.add_resource(QuestionUnique,'/question/<int:quest_id>')
+api.add_resource(ReponseRegister,'/reponse/create')
+api.add_resource(Lier,'/lier')
+api.add_resource(ReponseUnique,'/reponse/<int:rep_id>')
 #### resources end ####
 
 if __name__=='__main__':

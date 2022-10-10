@@ -10,15 +10,15 @@ class ReponseModel(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     contenu = db.Column(db.Text())
     questions = db.relationship('QuestionModel', backref='reponse', lazy=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'),
-                            nullable=True)
+    # user_id = db.Column(db.Integer, db.ForeignKey('users.id'),
+    #                         nullable=True)
     
     def __init__(self,contenu:str):
         self.contenu = contenu
         
     @classmethod
-    def find_by_email(cls, email:str) -> "ReponseModel":
-        return cls.query.filter_by(email = email).first()
+    def find_by_name(cls, contenu:str) -> "ReponseModel":
+        return cls.query.filter_by(contenu = contenu).first()
     
     @classmethod
     def find_by_id(cls, _id:int) -> "ReponseModel":
@@ -29,8 +29,12 @@ class ReponseModel(db.Model):
             'id':self.id,
             'contenu': self.contenu,
             'questions': [question.id for question in self.questions],
-            'user_id':self.user_id,
+            # 'user_id':self.user_id,
         }
+    
+    @classmethod
+    def find_all(cls):
+        return cls.query.all()
     
     def save_to_db(self) -> None:
         db.session.add(self)

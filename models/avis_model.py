@@ -9,10 +9,10 @@ class AvisModel(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     contenu = db.Column(db.Text())
     masquer = db.Column(db.Boolean())
-    event_id = db.Column(db.Integer, db.ForeignKey('events.id'),
-                            nullable=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'),
-                            nullable=True)
+    # event_id = db.Column(db.Integer, db.ForeignKey('events.id'),
+    #                         nullable=True)
+    # user_id = db.Column(db.Integer, db.ForeignKey('users.id'),
+    #                         nullable=True)
 
     def __init__(self,titre:str,contenu:str,masquer):
         self.titre = titre

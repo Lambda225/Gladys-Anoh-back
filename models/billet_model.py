@@ -10,11 +10,11 @@ class BilletModel(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     titre = db.Column(db.String(80), unique=True)
-    lien_session = db.Column(db.Text(), unique=True)
-    event_id = db.Column(db.Integer, db.ForeignKey('events.id'),
-                            nullable=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'),
-                            nullable=True)
+    lien_session = db.Column(db.Text())
+    # event_id = db.Column(db.Integer, db.ForeignKey('events.id'),
+    #                         nullable=True)
+    # user_id = db.Column(db.Integer, db.ForeignKey('users.id'),
+    #                         nullable=True)
                             
     def __init__(self,titre:str,description:str,lien_session:str):
         self.titre = titre

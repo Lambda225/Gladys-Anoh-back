@@ -8,17 +8,16 @@ class QuestionModel(db.Model):
     
     id = db.Column(db.Integer, primary_key=True)
     contenu = db.Column(db.Text())
-    reponse_id = db.Column(db.Integer, db.ForeignKey('reponse.id'),
-                            nullable=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'),
-                            nullable=True)
+    reponse_id = db.Column(db.Integer, db.ForeignKey('reponse.id'))
+    # user_id = db.Column(db.Integer, db.ForeignKey('users.id'),
+    #                         nullable=True)
 
-    def __init__(self,contenu:str):
+    def __init__(self,contenu):
         self.contenu = contenu
         
     @classmethod
-    def find_by_email(cls, email:str) -> "QuestionModel":
-        return cls.query.filter_by(email = email).first()
+    def find_by_name(cls, contenu:str) -> "QuestionModel":
+        return cls.query.filter_by(contenu = contenu).first()
     
     @classmethod
     def find_by_id(cls, _id:int) -> "QuestionModel":
@@ -29,8 +28,12 @@ class QuestionModel(db.Model):
             'id':self.id,
             'contenu': self.contenu,
             'reponse_id':self.reponse_id,
-            'user_id':self.user_id,
+            # 'user_id':self.user_id,
         }
+    
+    @classmethod
+    def find_all(cls):
+        return cls.query.all()
     
     def save_to_db(self) -> None:
         db.session.add(self)
